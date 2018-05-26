@@ -1,6 +1,7 @@
 'use strict'
 
 var TabsInfo = new Map()
+var IgnoreStart = ['file', 'about']
 
 async function getAllTabs() {
     let tabs = await browser.tabs.query({})
@@ -42,9 +43,11 @@ function onUpdated(tabId, changeInfo, tabInfo) {
 }
 
 async function onRemoved(tabId, removeInfo) {
-    if(TabsInfo.get(tabId).url.slice(0, 5) == 'about') {
-        TabsInfo.delete(tabId)
-        return
+    for (let i of IgnoreStart) {
+        if(TabsInfo.get(tabId).url.indexOf(i) == 0) {
+            TabsInfo.delete(tabId)
+            return
+        }
     }
     let result = await browser.storage.local.get('closedTabs')
     let closedTabs = result.hasOwnProperty('closedTabs') ? result.closedTabs : new Array()
@@ -53,9 +56,9 @@ async function onRemoved(tabId, removeInfo) {
         title: TabsInfo.get(tabId).title,
         url: TabsInfo.get(tabId).url,
         favicon: TabsInfo.get(tabId).favicon,
-        time: new Date().getTime()
+        closedTime: new Date().getTime()
     })
-    closedTabs.sort((a, b) => a.time > b.time ? -1 : 1)
+    closedTabs.sort((a, b) => a.closedTime > b.closedTime ? -1 : 1)
     await browser.storage.local.set({
         closedTabs: closedTabs
     })

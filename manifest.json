@@ -1,10 +1,10 @@
 {
     "manifest_version": 2,
     "name": "Undo",
-    "version": "0.0.1",
+    "version": "0.0.2",
   
     "description": "A simple undo extension.",
-    "homepage_url": "https://github.com/stormyyd",
+    "homepage_url": "https://github.com/stormyyd/a-simple-undo-extension",
     "icons": {
       "48": "icons/undo.svg",
       "96": "icons/undo.svg"

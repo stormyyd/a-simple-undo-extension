@@ -1,5 +1,5 @@
 html, body {
-    width: 350px;
+    width: 300px;
 }
 
 div.closed_tabs {
@@ -26,7 +26,19 @@ p.url {
     font-size: 12px;
 }
 
+p#no_tabs_info {
+    font-size: 15px;
+    display: none;
+}
+
 img.favicon {
     width: 15px;
     height: 15px;
+}
+
+button#clear {
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    border: none;
 }

@@ -3,6 +3,12 @@
 async function render() {
     let result = await browser.storage.local.get('closedTabs')
     let closedTabs = result.hasOwnProperty('closedTabs') ? result.closedTabs : new Array()
+    if(closedTabs.length == 0) {
+        document.getElementById('closed_tabs_list').innerHTML = ''
+        document.getElementById('no_tabs_info').style.display = 'block'
+        return
+    }
+    document.getElementById('no_tabs_info').style.display = 'none'
     let template = document.querySelector('template#closed_tabs')
     for (let i of closedTabs) {
         let templateContent = template.content
@@ -10,7 +16,7 @@ async function render() {
         templateContent.querySelector('div.closed_tabs').title = `${i.title}\n${i.url}`
         templateContent.querySelector('p.title').innerHTML = `<img class="favicon" src="${i.favicon}" /> ${i.title}`
         templateContent.querySelector('p.url').innerHTML = i.url
-        document.getElementById('content').appendChild(document.importNode(templateContent, true))
+        document.getElementById('closed_tabs_list').appendChild(document.importNode(templateContent, true))
     }
     for (let i of document.querySelectorAll('div.closed_tabs')) {
         i.addEventListener('click', async function() {
@@ -34,9 +40,10 @@ async function render() {
 }
 
 render()
+
 document.getElementById('clear').addEventListener('click', async function() {
     await browser.storage.local.set({
         closedTabs: []
     })
-    document.getElementById('content').innerHTML = ''
+    render()
 })
