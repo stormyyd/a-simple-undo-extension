@@ -1,0 +1,32 @@
+html, body {
+    width: 350px;
+}
+
+div.closed_tabs {
+    margin: 8px;
+}
+
+div.closed_tabs:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+p.title, p.url {
+    margin: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+p.title {
+    font-size: 15px;
+}
+
+p.url {
+    font-size: 12px;
+}
+
+img.favicon {
+    width: 15px;
+    height: 15px;
+}
