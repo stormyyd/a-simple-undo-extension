@@ -4,11 +4,11 @@ html, body {
 
 div.closed_tabs {
     margin: 8px;
+    cursor: pointer;
 }
 
 div.closed_tabs:hover {
     background-color: #f0f0f0;
-    cursor: pointer;
 }
 
 p.title, p.url {
@@ -41,4 +41,10 @@ button#clear {
     color: white;
     background-color: red;
     border: none;
+}
+
+input#search_bar {
+    width: 95%;
+    height: 15px;
+    font-size: 15px;
 }

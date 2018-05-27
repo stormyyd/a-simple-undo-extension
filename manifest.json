@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Undo",
-    "version": "0.0.2",
+    "version": "0.0.3",
   
     "description": "A simple undo extension.",
     "homepage_url": "https://github.com/stormyyd/a-simple-undo-extension",
