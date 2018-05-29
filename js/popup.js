@@ -62,7 +62,7 @@ async function search(event) {
     let closedTabs = result.hasOwnProperty('closedTabs') ? result.closedTabs : new Array()
     let searchResult = new Array()
     for (let i of closedTabs) {
-        if(i.title.indexOf(searchString) != -1) {
+        if(i.title.toLowerCase().indexOf(searchString.toLowerCase()) != -1) {
             searchResult.push(i)
         }
     }
