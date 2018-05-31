@@ -3,8 +3,10 @@ html, body {
 }
 
 div.closed_tabs {
-    margin: 8px;
+    margin: 8px 0px 8px 0px;
     cursor: pointer;
+    border-radius: 5px;
+    width: 95%;
 }
 
 div.closed_tabs:hover {
@@ -16,6 +18,7 @@ p.title, p.url {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    -moz-user-select: none;
 }
 
 p.title {
