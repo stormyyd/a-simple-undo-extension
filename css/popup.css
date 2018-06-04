@@ -1,5 +1,6 @@
 html, body {
     width: 300px;
+    overflow-x: hidden;
 }
 
 div.closed_tabs {
@@ -47,7 +48,7 @@ button#clear {
 }
 
 input#search_bar {
-    width: 95%;
+    width: 93%;
     height: 15px;
     font-size: 15px;
 }
